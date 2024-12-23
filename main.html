@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimum Date Finder</title>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+    <h1>Find the Earliest Date</h1>
 
+    <p>Click the button below to find the earliest date from a set of dates:</p>
+
+    <button onclick="findMinDate()">Find Earliest Date</button>
+
+    <p id="result"></p>
+
+    <script>
+        // Function to find the earliest date
+        function minDate(dates) {
+            return dates.reduce((earliest, currentDate) => {
+                return (currentDate < earliest) ? currentDate : earliest;
+            });
+        }
+
+        // Function to simulate button click and show the result
+        function findMinDate() {
+            const dates = ["2023/03/01", "2023/03/02", "2023/03/03"];
+            const earliestDate = minDate(dates);
+            document.getElementById("result").innerText = "The earliest date is: " + earliestDate;
+        }
+    </script>
 </body>
-
 </html>
